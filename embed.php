@@ -28,16 +28,16 @@ $first_img = explode( '"splashUrl":"' , $content );
 $second_img = explode('","streamUrl"', $first_img[1] );
 $img1 = $second_img[0];
 $img2 = str_replace('"', " ", $img1);
-
-//////////////////////////////////////////
-
+$first_title = explode( '<title>' , $content );
+$second_title = explode('</title>', $first_title[1] );
+$title1 = $second_title[0];
 ?>
 
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title><?php echo $original_id?> - Google Drive</title>
+  <title><?php echo $title1?></title>
 </head>
 <body>
   <div id="myElement"></div>
@@ -50,22 +50,13 @@ $img2 = str_replace('"', " ", $img1);
       playerInstance.setup({
         sources: <?php echo $file?>,								
         image: '<?php echo $img2?>',
-		allowfullscreen: true,
+	allowfullscreen: true,
         width: '100%',
         aspectratio: '16:9',
         skin: {
-			name: "thin"
-			},
+	      name: "thin"
+      },
       });
-        playerInstance.addButton(
-            '//icons.jwplayer.com/icons/white/download.svg',
-            'Download video', 
-            function() {
-                window.open(playerInstance.getPlaylistItem()['file']+'', '_blank').blur();
-                //window.location.href = playerInstance.getPlaylistItem()['file'];
-            },
-            'download'
-        );</script>
-
+    </script>
 </body>
 </html>
