@@ -28,32 +28,34 @@ $first_img = explode( '"splashUrl":"' , $content );
 $second_img = explode('","streamUrl"', $first_img[1] );
 $img1 = $second_img[0];
 $img2 = str_replace('"', " ", $img1);
-}
+
+//////////////////////////////////////////
+
 ?>
 
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title><?php echo $title?> - Google Drive</title>
+  <title><?php echo $original_id?> - Google Drive</title>
 </head>
 <body>
   <div id="myElement"></div>
 	<script src="bin/jwplayer-7.3.6/jwplayer.js"></script>	
 	<link href="bin/skins/thin.min.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript">jwplayer.key="Ywok59g9j93GtuSU7+axNzjIp/TBfiK4s0vvYg==";</script>
-  <style type="text/css">*{margin:0;padding:0}#container{position:absolute;width:100%!important;height:100%!important}</style>
-  <div id='container'></div>
-  <script>var playerInstance = jwplayer('container');
-    playerInstance.setup({
-    sources: <?php echo $text2?>,								
-    image: '<?php echo $img2?>',
+    <style type="text/css">*{margin:0;padding:0}#container{position:absolute;width:100%!important;height:100%!important}</style>
+    <div id='container'></div>
+    <script>var playerInstance = jwplayer('container');
+      playerInstance.setup({
+        sources: <?php echo $file?>,								
+        image: '<?php echo $img2?>',
 		allowfullscreen: true,
-    width: '100%',
-    aspectratio: '16:9',
-    skin: {
-      name: "thin"
-      },
+        width: '100%',
+        aspectratio: '16:9',
+        skin: {
+			name: "thin"
+			},
       });
         playerInstance.addButton(
             '//icons.jwplayer.com/icons/white/download.svg',
