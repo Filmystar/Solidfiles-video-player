@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Thin Skin Retina for JW7</title>
+</head>
+
+<body style="background-color: #d2d1d0;">
+<center class="player-wrapper">
+	<div id="my_video"></div>
+	<br/>
+	<input type="Button" onclick="switchColor('green');" value="Green" style="background-color: #00ac32;"> 
+	<input type="Button" onclick="switchColor('blue');" value="Blue" style="background-color: #2196f3;"> 
+	<input type="Button" onclick="switchColor('yellow');" value="Yellow" style="background-color: #fec200;"> 
+	<input type="Button" onclick="switchColor('red');" value="Red" style="background-color: #ef3123;"> 
+	<input type="Button" onclick="switchColor('violet');" value="Violet" style="background-color: #af12b9;"> 
+	<input type="Button" onclick="switchColor('purple');" value="Purple" style="background-color: #5f12b9;">
+</center>
+
+<script type="text/javascript" src="./jwplayer-7.3.6/jwplayer.js"></script>
+<script type="text/javascript">jwplayer.key="Ywok59g9j93GtuSU7+axNzjIp/TBfiK4s0vvYg==";</script>
+<script type="text/javascript">
+	//Note: JW Player 7 now requires a license key. Please make sure to include this on your page if you are self-hosting.
+	//jwplayer.key = "Ywok59g9j93GtuSU7+axNzjIp/TBfiK4s0vvYg==";
+	
+	var filename = "./skins/thin.min.css";
+	var _color = location.search.split('color=')[1];
+	if (_color != undefined && _color != "" && _color != "red")
+		filename = "./skins/thin-" + _color + ".min.css";
+	var fileref = document.createElement("link");
+	fileref.setAttribute("rel", "stylesheet");
+	fileref.setAttribute("type", "text/css");
+	fileref.setAttribute("href", filename);
+	document.getElementsByTagName("head")[0].appendChild(fileref);
+	
+	function switchColor(color) {
+		history.replaceState({}, '', '?color='+color);
+		location.reload();
+	};
+	
+	jwplayer('my_video').setup({
+		playlist: "http://content.jwplatform.com/feeds/13ShtP5m.rss",
+		width: 640,
+		height: 360,
+		autostart: true,
+		skin: {
+			name: "thin"
+		}
+	});
+</script>
+
+</body>
+</html>
