@@ -75,7 +75,7 @@ if($_POST['submit'] != ""){
 		<div id="myElement"><center>Paste the url and click the get button.</center></div>
 
 		<br>
-		<div><?php if($iframeid){echo "Embed"; echo '<textarea style="margin:10px;width: 97%;height: 80px;">&lt;iframe src=""'.base_url.'/embed.php?url='.$iframeid.'" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen&gt;&lt;/iframe&gt;</textarea>';}?></div>
+		<div><?php if($iframeid){echo "Embed"; echo '<textarea style="margin:10px;width: 97%;height: 80px;">&lt;iframe src="'.base_url.'embed.php?url='.$iframeid.'" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen&gt;&lt;/iframe&gt;</textarea>';}?></div>
     
     </div>
     <!-- Player Script -->
