@@ -1,4 +1,6 @@
 <?php
+define("base_url", "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']);
+
 function my_simple_crypt( $string, $action = 'e' ) {
   $secret_key = 'html5';
   $secret_iv = 'video';
@@ -73,7 +75,7 @@ if($_POST['submit'] != ""){
 		<div id="myElement"><center>Paste the url and click the get button.</center></div>
 
 		<br>
-		<div><?php if($iframeid){echo "Embed"; echo '<textarea style="margin:10px;width: 97%;height: 80px;">&lt;iframe src="https://<yourdomain.com>/embed.php?url='.$iframeid.'" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen&gt;&lt;/iframe&gt;</textarea>';}?></div>
+		<div><?php if($iframeid){echo "Embed"; echo '<textarea style="margin:10px;width: 97%;height: 80px;">&lt;iframe src=""'.base_url.'/embed.php?url='.$iframeid.'" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen&gt;&lt;/iframe&gt;</textarea>';}?></div>
     
     </div>
     <!-- Player Script -->
